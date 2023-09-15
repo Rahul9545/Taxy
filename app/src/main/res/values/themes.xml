@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Theme.Taxy" parent="android:Theme.Material.Light.NoActionBar" />
+    <style name="SplashScreenTheme" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenBackground">@color/colorPrimaryDark</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/ic_taxy_sp</item>
+        <item name="windowSplashScreenAnimationDuration">800</item>
+        <item name="postSplashScreenTheme">@style/Theme.SplashScreen.IconBackground</item>
+    </style>
+
+    <style name="DialogTheme" parent="android:Theme.Material.Dialog">
+        <item name="android:color">@color/colorPrimary</item>
+    </style>
+
+</resources>
