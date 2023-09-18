@@ -3,6 +3,7 @@ package com.appynitty.taxy.screen
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -12,6 +13,8 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.ClickableText
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonColors
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
@@ -32,6 +35,8 @@ import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
+import com.appynitty.taxy.screen_connection.Routes
+import org.intellij.lang.annotations.JdkConstants.HorizontalAlignment
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -75,32 +80,29 @@ fun LoginScreen(navController: NavHostController){
             onValueChange = { password.value = it })
 
         Spacer(modifier = Modifier.height(20.dp))
-
-        Box(modifier = Modifier.padding(40.dp, 0.dp, 40.dp, 0.dp)) {
-            Button(
-                onClick = { },
-                shape = RoundedCornerShape(50.dp),
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .height(50.dp)
-            ) {
-                Text(text = "Login")
+        Row(
+            horizontalArrangement = Arrangement.SpaceAround,
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(5.dp), verticalAlignment = Alignment.Bottom
+        ) {
+            Button( onClick = { /*TODO*/ }, colors = ButtonDefaults.buttonColors(Color.Gray)){
+                Text(
+                    text = "Login",
+                    style = TextStyle(fontSize = 14.sp)
+                )
+            }
+            Button( onClick = { navController.navigate(Routes.Signup.route) }, colors = ButtonDefaults.buttonColors(Color.Gray)) {
+                Text(
+                    text = "SignUp",
+                    style = TextStyle(fontSize = 14.sp)
+                )
             }
         }
         Spacer(modifier = Modifier.height(20.dp))
 
         ClickableText(
             text = AnnotatedString("Forget Password?"),
-            onClick = { },
-            style = TextStyle(
-                fontSize = 14.sp,
-                fontFamily = FontFamily.Default
-            )
-        )
-        Spacer(modifier = Modifier.height(20.dp))
-
-        ClickableText(
-            text = AnnotatedString("Account not available, please sign up"),
             onClick = { },
             style = TextStyle(
                 fontSize = 14.sp,

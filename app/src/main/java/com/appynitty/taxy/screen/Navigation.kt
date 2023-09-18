@@ -17,5 +17,11 @@ fun Navigation(){
         composable(Routes.Login.route) {
             LoginScreen(navController = navController)
         }
+        composable(Routes.Signup.route) {
+            SignupScreen(navController = navController)
+        }
+        composable(Routes.Toolbar.route) {
+            CustomToolbarScreen(navController = navController, title = String())
+        }
     }
 }
