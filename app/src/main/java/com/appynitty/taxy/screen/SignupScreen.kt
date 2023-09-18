@@ -1,8 +1,6 @@
 package com.appynitty.taxy.screen
 
 import android.content.Context
-import androidx.compose.animation.fadeOut
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -11,7 +9,6 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.requiredHeight
 import androidx.compose.foundation.layout.requiredWidth
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
@@ -37,13 +34,12 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontFamily
-import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
+import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
-import org.intellij.lang.annotations.JdkConstants.HorizontalAlignment
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -53,9 +49,9 @@ fun SignupScreen(navController: NavHostController){
     val context: Context;
     val state = rememberScrollState()
 
-    CustomToolbarScreen(navController, title = " Signup")
-
     LaunchedEffect(Unit) { state.animateScrollTo(100) }
+
+    CustomToolbarScreen(navController, title = "SignUp")
 
     Column (
         modifier = Modifier
@@ -100,6 +96,7 @@ fun SignupScreen(navController: NavHostController){
             },
             value = contact.value,
             singleLine = true,
+            keyboardOptions = KeyboardOptions.Default.copy(keyboardType = KeyboardType.Number),
             onValueChange = { contact.value = it }
         )
         Spacer(modifier = Modifier
@@ -136,6 +133,7 @@ fun SignupScreen(navController: NavHostController){
             },
             value = emailId.value,
             singleLine = true,
+            keyboardOptions = KeyboardOptions.Default.copy(keyboardType = KeyboardType.Email),
             onValueChange = { emailId.value = it }
         )
         Spacer(modifier = Modifier.height(10.dp))
@@ -150,6 +148,7 @@ fun SignupScreen(navController: NavHostController){
             },
             value = address.value,
             singleLine = true,
+            keyboardOptions = KeyboardOptions.Default.copy(keyboardType = KeyboardType.Text),
             onValueChange = { address.value = it }
         )
         Spacer(modifier = Modifier.height(10.dp))
@@ -163,6 +162,8 @@ fun SignupScreen(navController: NavHostController){
             },
             value = password.value,
             singleLine = true,
+            keyboardOptions = KeyboardOptions.Default.copy(keyboardType = KeyboardType.Password),
+            visualTransformation =  PasswordVisualTransformation(),
             onValueChange = { password.value = it }
         )
         Spacer(modifier = Modifier.height(10.dp))
@@ -176,6 +177,8 @@ fun SignupScreen(navController: NavHostController){
             },
             value = confirmPassword.value,
             singleLine = true,
+            keyboardOptions = KeyboardOptions.Default.copy(keyboardType = KeyboardType.Password),
+            visualTransformation =  PasswordVisualTransformation(),//password mark in dot sign
             onValueChange = { confirmPassword.value = it }
         )
         Spacer(modifier = Modifier.height(10.dp))

@@ -103,7 +103,7 @@ fun LoginScreen(navController: NavHostController){
 
         ClickableText(
             text = AnnotatedString("Forget Password?"),
-            onClick = { },
+            onClick = { navController.navigate(Routes.ForgotPass.route)},
             style = TextStyle(
                 fontSize = 14.sp,
                 fontFamily = FontFamily.Default

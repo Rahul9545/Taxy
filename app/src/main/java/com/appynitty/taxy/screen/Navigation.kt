@@ -9,6 +9,7 @@ import com.appynitty.taxy.screen_connection.Routes
 @Composable
 fun Navigation(){
     val navController = rememberNavController()
+    val isUpAvailable : Boolean? = false
     NavHost(navController = navController, startDestination = Routes.Splash.route) {
 
         composable(Routes.Splash.route) {
@@ -22,6 +23,9 @@ fun Navigation(){
         }
         composable(Routes.Toolbar.route) {
             CustomToolbarScreen(navController = navController, title = String())
+        }
+        composable(Routes.ForgotPass.route) {
+            ForgotPasswordScreen(navController = navController)
         }
     }
 }
