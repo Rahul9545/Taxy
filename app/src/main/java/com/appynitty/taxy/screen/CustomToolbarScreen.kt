@@ -32,34 +32,21 @@ import com.appynitty.taxy.ui.theme.colorPrimary
 fun CustomToolbarScreen(navController: NavHostController, title: String){
     var canPop = remember { mutableStateOf(false) }
 
-    Scaffold(
-        topBar = {
-            TopAppBar(
-                colors = TopAppBarDefaults.smallTopAppBarColors(
-                    containerColor = MaterialTheme.colorScheme.primaryContainer,
-                    titleContentColor = MaterialTheme.colorScheme.primary,
-                ),
-                title = {
-                    Text(text = title,color = Color.Black,
-                        fontSize = 18.sp)
-                },
-                modifier = Modifier.background(colorPrimary),
-                navigationIcon = {
-                    IconButton(onClick = {navController.navigateUp()}) {
-                        Icon(Icons.Filled.ArrowBack, "backIcon")
-                    }
-                }
-            )
+    TopAppBar(
+        colors = TopAppBarDefaults.smallTopAppBarColors(
+            containerColor = MaterialTheme.colorScheme.primaryContainer,
+            titleContentColor = MaterialTheme.colorScheme.primary,
+        ),
+        title = {
+            Text(text = title,color = Color.Black,
+                fontSize = 18.sp)
+        },
+        modifier = Modifier.background(colorPrimary),
+        navigationIcon = {
+            IconButton(onClick = {navController.navigateUp()}) {
+                Icon(Icons.Filled.ArrowBack, "backIcon")
+            }
         }
     )
-    { innerPadding ->
-        Column (
-            modifier = Modifier.padding(innerPadding),
-            verticalArrangement = Arrangement.Center,
-            horizontalAlignment = Alignment.CenterHorizontally
-        ){
-
-        }
-    }
 
 }

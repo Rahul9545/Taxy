@@ -14,6 +14,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.compose.rememberNavController
 import com.appynitty.taxy.screen.CustomToolbarScreen
 import com.appynitty.taxy.screen.ForgotPasswordScreen
+import com.appynitty.taxy.screen.HomeScreen
 import com.appynitty.taxy.screen.LoginScreen
 import com.appynitty.taxy.screen.Navigation
 import com.appynitty.taxy.screen.SignupScreen
@@ -95,6 +96,15 @@ class MainActivity : ComponentActivity() {
         TaxyTheme {
             val navController = rememberNavController()
             CustomToolbarScreen(navController = navController, title = String())
+        }
+    }
+
+    @Preview(showBackground = true)
+    @Composable
+    fun HomePreview() {
+        TaxyTheme {
+            val navController = rememberNavController()
+            HomeScreen(navController = navController)
         }
     }
 }

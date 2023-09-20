@@ -26,5 +26,8 @@ fun Navigation(){
         composable(Routes.ForgotPass.route) {
             ForgotPasswordScreen(navController = navController)
         }
+        composable(Routes.Home.route) {
+            HomeScreen(navController = navController)
+        }
     }
 }

@@ -86,7 +86,7 @@ fun LoginScreen(navController: NavHostController){
                 .fillMaxWidth()
                 .padding(5.dp), verticalAlignment = Alignment.Bottom
         ) {
-            Button( onClick = { /*TODO*/ }, colors = ButtonDefaults.buttonColors(Color.Gray)){
+            Button( onClick = { navController.navigate(Routes.Home.route) }, colors = ButtonDefaults.buttonColors(Color.Gray)){
                 Text(
                     text = "Login",
                     style = TextStyle(fontSize = 14.sp)

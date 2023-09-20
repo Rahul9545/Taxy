@@ -74,15 +74,15 @@ dependencies {
     implementation ("androidx.navigation:navigation-compose:2.7.2")
 
     implementation ("com.squareup.retrofit2:retrofit:2.9.0")
-    implementation ("com.squareup.retrofit2:converter-gson:2.5.0")
+    implementation ("com.squareup.retrofit2:converter-gson:2.9.0")
 
     // Jetpack Compose
     implementation ("androidx.lifecycle:lifecycle-viewmodel-compose:2.7.0-alpha02")
     implementation ("androidx.compose.runtime:runtime-livedata:1.5.1")
 
 // Coroutines for asynchronous programming
-    implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4")
+    implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.1")
 
-    debugImplementation("androidx.compose.ui:ui-tooling:1.4.3")
-    implementation("androidx.compose.ui:ui-tooling-preview:1.4.3")
+    debugImplementation("androidx.compose.ui:ui-tooling:1.5.1")
+    implementation("androidx.compose.ui:ui-tooling-preview:1.5.1")
 }

@@ -56,22 +56,7 @@ fun ForgotPasswordScreen(navController: NavHostController){
 
     Scaffold(
         topBar = {
-            TopAppBar(
-                colors = TopAppBarDefaults.smallTopAppBarColors(
-                    containerColor = MaterialTheme.colorScheme.primaryContainer,
-                    titleContentColor = MaterialTheme.colorScheme.primary,
-                ),
-                title = {
-                    Text(text = "Forgot Password",color = Color.Black,
-                        fontSize = 18.sp)
-                },
-                modifier = Modifier.background(colorPrimary),
-                navigationIcon = {
-                    IconButton(onClick = {navController.navigateUp()}) {
-                        Icon(Icons.Filled.ArrowBack, "backIcon")
-                    }
-                }
-            )
+            CustomToolbarScreen(navController = navController, title = "Forgot Password")
         }
     )
     { innerPadding ->
