@@ -90,7 +90,6 @@ fun SignupScreen(navController: NavHostController){
         ){
             val fullName = remember { mutableStateOf(TextFieldValue()) }
             val contact = remember { mutableStateOf(TextFieldValue()) }
-            val verifyOtp = remember { mutableStateOf(TextFieldValue()) }
             val emailId = remember { mutableStateOf(TextFieldValue()) }
             val address = remember { mutableStateOf(TextFieldValue()) }
             val password = remember { mutableStateOf(TextFieldValue()) }
@@ -127,27 +126,6 @@ fun SignupScreen(navController: NavHostController){
             )
             Spacer(modifier = Modifier
                 .height(20.dp))
-            Row (
-                modifier = Modifier.height(10.dp),Arrangement.SpaceBetween, Alignment.Top
-            ){
-                repeat(4){
-                    OutlinedTextField(
-                        modifier = with(Modifier) {
-                            requiredWidth(35.dp)
-                                .focusRequester(FocusRequester.Default)
-                        },
-                        singleLine = true,
-                        value = verifyOtp.value,
-                        textStyle = TextStyle(Color.Blue),
-                        maxLines = 1,
-                        keyboardOptions = KeyboardOptions.Default.copy(keyboardType = KeyboardType.Number),
-                        onValueChange = { verifyOtp.value = it }
-                    )
-                    Spacer(modifier = Modifier.width(8.dp))
-                }
-            }
-
-            Spacer(modifier = Modifier.height(20.dp))
 
             TextField(
                 label = {
