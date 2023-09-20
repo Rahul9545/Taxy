@@ -21,7 +21,6 @@ import com.appynitty.taxy.screen.SignupScreen
 import com.appynitty.taxy.screen.SplashScreen
 import com.appynitty.taxy.showModel.CreditCardViewModel
 import com.appynitty.taxy.ui.theme.TaxyTheme
-import kotlinx.coroutines.Deferred
 
 class MainActivity : ComponentActivity() {
     private val viewModel: CreditCardViewModel by viewModels()
@@ -95,7 +94,7 @@ class MainActivity : ComponentActivity() {
     fun CustomToolbarPreview() {
         TaxyTheme {
             val navController = rememberNavController()
-            CustomToolbarScreen(navController = navController, title = String())
+            CustomToolbarScreen(navController = navController, title = String(),true)
         }
     }
 

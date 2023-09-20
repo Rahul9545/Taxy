@@ -21,7 +21,7 @@ fun Navigation(){
             SignupScreen(navController = navController)
         }
         composable(Routes.Toolbar.route) {
-            CustomToolbarScreen(navController = navController, title = String())
+            CustomToolbarScreen(navController = navController, title = String(), isBack = true)
         }
         composable(Routes.ForgotPass.route) {
             ForgotPasswordScreen(navController = navController)

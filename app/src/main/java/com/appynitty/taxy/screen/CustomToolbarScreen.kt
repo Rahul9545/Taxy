@@ -2,12 +2,9 @@
 package com.appynitty.taxy.screen
 
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
+import androidx.compose.material.icons.filled.Menu
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -29,7 +26,7 @@ import com.appynitty.taxy.ui.theme.colorPrimary
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun CustomToolbarScreen(navController: NavHostController, title: String){
+fun CustomToolbarScreen(navController: NavHostController, title: String, isBack: Boolean){
     var canPop = remember { mutableStateOf(false) }
 
     TopAppBar(
@@ -43,8 +40,14 @@ fun CustomToolbarScreen(navController: NavHostController, title: String){
         },
         modifier = Modifier.background(colorPrimary),
         navigationIcon = {
-            IconButton(onClick = {navController.navigateUp()}) {
-                Icon(Icons.Filled.ArrowBack, "backIcon")
+            if (isBack){
+                IconButton(onClick = {navController.navigateUp()}) {
+                    Icon(Icons.Filled.ArrowBack, "backIcon")
+                }
+            }else{
+                IconButton(onClick = {navController.navigateUp()}) {
+                    Icon(Icons.Filled.Menu, "backIcon")
+                }
             }
         }
     )
