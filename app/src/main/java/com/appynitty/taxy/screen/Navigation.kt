@@ -9,7 +9,6 @@ import com.appynitty.taxy.screen_connection.Routes
 @Composable
 fun Navigation(){
     val navController = rememberNavController()
-    val isUpAvailable : Boolean? = false
     NavHost(navController = navController, startDestination = Routes.Splash.route) {
 
         composable(Routes.Splash.route) {
