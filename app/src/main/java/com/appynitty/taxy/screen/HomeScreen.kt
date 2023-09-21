@@ -26,7 +26,7 @@ fun HomeScreen(){
         Text(
             text = "Home Screen",
             fontWeight = FontWeight.Bold,
-            color = Color.White,
+            color = Color.Yellow,
             modifier = Modifier.align(Alignment.CenterHorizontally),
             textAlign = TextAlign.Center,
             fontSize = 20.sp
