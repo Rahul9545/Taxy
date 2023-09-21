@@ -1,9 +1,15 @@
-package com.appynitty.taxy.screen
+package com.appynitty.taxy.navigateApp
 
 import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.appynitty.taxy.screen.CustomToolbarScreen
+import com.appynitty.taxy.screen.DashboardScreen
+import com.appynitty.taxy.screen.ForgotPasswordScreen
+import com.appynitty.taxy.screen.LoginScreen
+import com.appynitty.taxy.screen.SignupScreen
+import com.appynitty.taxy.screen.SplashScreen
 import com.appynitty.taxy.screen_connection.Routes
 
 @Composable
@@ -26,8 +32,8 @@ fun Navigation(){
         composable(Routes.ForgotPass.route) {
             ForgotPasswordScreen(navController = navController)
         }
-        composable(Routes.Home.route) {
-            HomeScreen(navController = navController)
+        composable(Routes.Dashboard.route) {
+            DashboardScreen(navController = navController)
         }
     }
 }

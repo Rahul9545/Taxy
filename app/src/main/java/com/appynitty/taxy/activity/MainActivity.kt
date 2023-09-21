@@ -13,10 +13,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.compose.rememberNavController
 import com.appynitty.taxy.screen.CustomToolbarScreen
+import com.appynitty.taxy.screen.DashboardScreen
 import com.appynitty.taxy.screen.ForgotPasswordScreen
-import com.appynitty.taxy.screen.HomeScreen
 import com.appynitty.taxy.screen.LoginScreen
-import com.appynitty.taxy.screen.Navigation
+import com.appynitty.taxy.navigateApp.Navigation
 import com.appynitty.taxy.screen.SignupScreen
 import com.appynitty.taxy.screen.SplashScreen
 import com.appynitty.taxy.showModel.CreditCardViewModel
@@ -100,10 +100,10 @@ class MainActivity : ComponentActivity() {
 
     @Preview(showBackground = true)
     @Composable
-    fun HomePreview() {
+    fun DashboardPreview() {
         TaxyTheme {
             val navController = rememberNavController()
-            HomeScreen(navController = navController)
+            DashboardScreen(navController = navController)
         }
     }
 }
