@@ -10,7 +10,6 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import com.appynitty.taxy.navigateApp.NavigationGraph
 import com.appynitty.taxy.navigation_connection.BottomNavigation
@@ -31,13 +30,13 @@ fun DashboardScreen(navController: NavHostController) {
             Scaffold (
                 bottomBar = {
                     BottomAppBar {
-                        BottomNavigation(navController)
+                        BottomNavigation()
                     }
                 }
             ) { innerPadding ->
 
                 Text(text = "", modifier = Modifier.padding(innerPadding))
-               // NavigationGraph(navController = navController, innerPadding)
+                NavigationGraph()
             }
         }
     }
