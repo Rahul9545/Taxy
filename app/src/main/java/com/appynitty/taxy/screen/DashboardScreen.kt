@@ -12,6 +12,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
+import androidx.navigation.compose.rememberNavController
 import com.appynitty.taxy.navigateApp.NavigationGraph
 import com.appynitty.taxy.navigation_connection.BottomNavigation
 
@@ -27,14 +28,15 @@ fun DashboardScreen(navController: NavHostController) {
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
+            val navClicked = rememberNavController()
             Scaffold (
                 bottomBar = {
                     BottomAppBar {
-                        BottomNavigation(navController = navController)
+                        BottomNavigation(navClicked)
                     }
                 }
             ) {
-                NavigationGraph(navController = navController)
+                NavigationGraph(navClicked)
             }
         }
     }

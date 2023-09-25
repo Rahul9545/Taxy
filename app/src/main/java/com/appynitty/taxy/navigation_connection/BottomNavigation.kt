@@ -1,5 +1,6 @@
 package com.appynitty.taxy.navigation_connection
 
+import android.util.Log
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.RowScope
 import androidx.compose.material3.Icon
@@ -26,7 +27,7 @@ import com.appynitty.taxy.ui.theme.colorPrimary
 
 @Composable
 fun BottomNavigation(navController: NavHostController){
-   val navController = rememberNavController()
+  // val navController = rememberNavController()
     val selectedTab = remember { mutableStateOf(0) }
     val items = listOf(
         BottomNavItem.Home,
@@ -40,7 +41,7 @@ fun BottomNavigation(navController: NavHostController){
         items.forEach { item ->
             AddItem(
                 screen = item,
-                 selectedTab = selectedTab,
+                 //selectedTab = selectedTab,
                 navController = navController,
                 currentDestination = currentDestination
             )
@@ -50,7 +51,7 @@ fun BottomNavigation(navController: NavHostController){
 @Composable
 fun RowScope.AddItem(
     screen: BottomNavItem,
-    selectedTab: MutableState<Int>,
+    //selectedTab: MutableState<Int>,
     navController: NavHostController,
     currentDestination: NavDestination?
 ) {
@@ -65,19 +66,25 @@ fun RowScope.AddItem(
         selected = currentDestination?.hierarchy?.any { it.route == screen.screen_route } == true,
         alwaysShowLabel = true,
         onClick = {
+            Log.i("Bottom", "OnClick")
             navController.navigate(screen.screen_route){
+                Log.i("Bottom", "navigate")
                 when (screen.screen_route == screen.title) {
 
                     (screen.screen_route == "Home") -> {
+                        Log.i("Bottom", "item: Home")
                         navController.navigate(BottomNavItem.Home.screen_route)
                     }
                     (screen.screen_route == "Call") -> {
+                        Log.i("Bottom", "item: Call")
                         navController.navigate(BottomNavItem.Call.screen_route)
                     }
                     (screen.screen_route == "Profile") -> {
+                        Log.i("Bottom", "item: Profile")
                         navController.navigate(BottomNavItem.Profile.screen_route)
                     }
                     (screen.screen_route == "Favorite") -> {
+                        Log.i("Bottom", "item: Favorite")
                         navController.navigate(BottomNavItem.Favorite.screen_route)
                     }
                     else -> {}
