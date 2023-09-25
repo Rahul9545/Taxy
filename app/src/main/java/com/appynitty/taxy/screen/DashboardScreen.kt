@@ -30,11 +30,11 @@ fun DashboardScreen(navController: NavHostController) {
             Scaffold (
                 bottomBar = {
                     BottomAppBar {
-                        BottomNavigation(navController)
+                        BottomNavigation(navController = navController)
                     }
                 }
             ) {
-                NavigationGraph(navController)
+                NavigationGraph(navController = navController)
             }
         }
     }

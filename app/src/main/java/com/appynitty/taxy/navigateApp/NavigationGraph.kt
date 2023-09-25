@@ -13,7 +13,7 @@ import com.appynitty.taxy.screen_connection.BottomNavItem
 
 @Composable
 fun NavigationGraph(navController: NavHostController){
-        //val navController = rememberNavController()
+        val navController = rememberNavController()
         NavHost(navController =navController , startDestination = BottomNavItem.Home.screen_route){
 
                 composable(BottomNavItem.Home.screen_route) {

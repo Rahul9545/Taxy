@@ -26,7 +26,7 @@ import com.appynitty.taxy.ui.theme.colorPrimary
 
 @Composable
 fun BottomNavigation(navController: NavHostController){
-   //val navController = rememberNavController()
+   val navController = rememberNavController()
     val selectedTab = remember { mutableStateOf(0) }
     val items = listOf(
         BottomNavItem.Home,
@@ -35,12 +35,12 @@ fun BottomNavigation(navController: NavHostController){
         BottomNavItem.Favorite
     )
     val navBackStackEntry by navController.currentBackStackEntryAsState()
-    val currentDestination = navBackStackEntry?.destination?.route
+    val currentDestination = navBackStackEntry?.destination
     NavigationBar {
         items.forEach { item ->
             AddItem(
                 screen = item,
-                //selectedTab = selectedTab,
+                 selectedTab = selectedTab,
                 navController = navController,
                 currentDestination = currentDestination
             )
@@ -50,7 +50,7 @@ fun BottomNavigation(navController: NavHostController){
 @Composable
 fun RowScope.AddItem(
     screen: BottomNavItem,
-    //selectedTab: MutableState<Int>,
+    selectedTab: MutableState<Int>,
     navController: NavHostController,
     currentDestination: NavDestination?
 ) {
@@ -65,7 +65,7 @@ fun RowScope.AddItem(
         selected = currentDestination?.hierarchy?.any { it.route == screen.screen_route } == true,
         alwaysShowLabel = true,
         onClick = {
-            /*navController.navigate(screen.screen_route){
+            navController.navigate(screen.screen_route){
                 when (screen.screen_route == screen.title) {
 
                     (screen.screen_route == "Home") -> {
@@ -82,9 +82,9 @@ fun RowScope.AddItem(
                     }
                     else -> {}
                 }
-            }*/
+            }
 
-            navController.navigate(screen.screen_route) {
+            /*navController.navigate(screen.screen_route) {
                 navController.graph.findStartDestination().route?.let {
                     popUpTo(it){
                         saveState = true
@@ -92,7 +92,7 @@ fun RowScope.AddItem(
                 }
                 launchSingleTop = true
                 restoreState = true
-            }
+            }*/
         },
         colors = NavigationBarItemDefaults.colors(),
         modifier = Modifier.background(colorPrimary)
