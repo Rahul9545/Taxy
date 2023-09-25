@@ -83,6 +83,11 @@ dependencies {
     //Bottom navigation bar
     implementation ("androidx.navigation:navigation-compose:2.7.3")
 
+    //Banner used pager
+    implementation ("com.google.accompanist:accompanist-pager:0.28.0")
+    //pager indicator
+    implementation ("com.google.accompanist:accompanist-pager-indicators:0.23.0")
+
 // Coroutines for asynchronous programming
     implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.1")
 

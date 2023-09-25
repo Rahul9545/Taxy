@@ -1,5 +1,6 @@
 package com.appynitty.taxy.screen
 
+import android.annotation.SuppressLint
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
@@ -14,13 +15,12 @@ import androidx.navigation.NavHostController
 import com.appynitty.taxy.navigateApp.NavigationGraph
 import com.appynitty.taxy.navigation_connection.BottomNavigation
 
+@SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun DashboardScreen(navController: NavHostController) {
-
     Scaffold(
         topBar = { CustomToolbarScreen(navController = navController, title = "Dashboard", false) }
-
     ) { innerPadding ->
         Column(
             modifier = Modifier.padding(innerPadding),
@@ -30,13 +30,11 @@ fun DashboardScreen(navController: NavHostController) {
             Scaffold (
                 bottomBar = {
                     BottomAppBar {
-                        BottomNavigation()
+                        BottomNavigation(navController)
                     }
                 }
-            ) { innerPadding ->
-
-                Text(text = "", modifier = Modifier.padding(innerPadding))
-                NavigationGraph()
+            ) {
+                NavigationGraph(navController)
             }
         }
     }
