@@ -66,8 +66,12 @@ fun RowScope.AddItem(
         selected = currentDestination?.hierarchy?.any { it.route == screen.screen_route } == true,
         alwaysShowLabel = true,
         onClick = {
+
+            /*****
+            * Wow both on click code is working used any one
+            * */
             Log.i("Bottom", "OnClick")
-            navController.navigate(screen.screen_route){
+            /*navController.navigate(screen.screen_route){
                 Log.i("Bottom", "navigate")
                 when (screen.screen_route == screen.title) {
 
@@ -89,9 +93,9 @@ fun RowScope.AddItem(
                     }
                     else -> {}
                 }
-            }
+            }*/
 
-            /*navController.navigate(screen.screen_route) {
+            navController.navigate(screen.screen_route) {
                 navController.graph.findStartDestination().route?.let {
                     popUpTo(it){
                         saveState = true
@@ -99,7 +103,7 @@ fun RowScope.AddItem(
                 }
                 launchSingleTop = true
                 restoreState = true
-            }*/
+            }
         },
         colors = NavigationBarItemDefaults.colors(),
         modifier = Modifier.background(colorPrimary)
