@@ -6,6 +6,7 @@ import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -18,6 +19,7 @@ import androidx.compose.material.DrawerState
 import androidx.compose.material.DrawerValue
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
+import androidx.compose.material.primarySurface
 import androidx.compose.material.rememberDrawerState
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.ModalDrawerSheet
@@ -111,7 +113,9 @@ fun DrawerNavHeader(navController: NavHostController){
                     painter = painterResource(id = R.drawable.ic_taxy_sp),
                     contentDescription = "Rahul",
                     contentScale = ContentScale.Crop,
-                    modifier = Modifier.size(94.dp).clip(CircleShape)
+                    modifier = Modifier
+                        .size(94.dp)
+                        .clip(CircleShape)
                 )
             }
             Spacer(Modifier.height(4.dp))
@@ -150,6 +154,34 @@ fun DrawerNavCenterView(navController: NavHostController){
 
 @Composable
 fun DrawerNavFooter(navController: NavHostController){
+    Box (
+        modifier = Modifier
+            .fillMaxWidth(1f)
+            .height(60.dp)
+            .background(MaterialTheme.colors.primarySurface),
+        contentAlignment = Alignment.CenterStart
+    ){
+        Row (
+            modifier = Modifier.fillMaxWidth(1f),
+            horizontalArrangement = Arrangement.SpaceBetween
+        ){
+            Text(
+                text = "Version Name: 1.0",
+                modifier = Modifier
+                    .padding(10.dp),
+                textAlign = TextAlign.Start,
+                color = White,
+            )
+
+            Text(
+                text = "Logout",
+                modifier = Modifier
+                    .padding(10.dp),
+                textAlign = TextAlign.End,
+                color = White,
+            )
+        }
+    }
 
 }
 
