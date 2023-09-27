@@ -18,6 +18,7 @@ import com.appynitty.taxy.screen.ForgotPasswordScreen
 import com.appynitty.taxy.screen.LoginScreen
 import com.appynitty.taxy.navigateApp.Navigation
 import com.appynitty.taxy.navigation_connection.DrawerNavComplete
+import com.appynitty.taxy.navigation_connection.DrawerNavHeader
 import com.appynitty.taxy.screen.SignupScreen
 import com.appynitty.taxy.screen.SplashScreen
 import com.appynitty.taxy.showModel.CreditCardViewModel
@@ -113,7 +114,6 @@ class MainActivity : ComponentActivity() {
     fun DrawerNavCompletePreview() {
         TaxyTheme {
             val navController = rememberNavController()
-            DrawerNavComplete(navController = navController)
         }
     }
 }

@@ -88,6 +88,9 @@ dependencies {
     //pager indicator
     implementation ("com.google.accompanist:accompanist-pager-indicators:0.23.0")
 
+    //image loading
+    implementation("io.coil-kt:coil-compose:1.3.2")
+
 // Coroutines for asynchronous programming
     implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.1")
 

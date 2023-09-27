@@ -34,8 +34,6 @@ import kotlinx.coroutines.launch
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun CustomToolbarScreen(navController: NavHostController, title: String, isBack: Boolean){
-    var canPop = remember { mutableStateOf(false) }
-    val navController = rememberNavController()
     val scaffoldState = rememberScaffoldState()
     val scope = rememberCoroutineScope()
 
@@ -66,12 +64,5 @@ fun CustomToolbarScreen(navController: NavHostController, title: String, isBack:
             }
         }
     )
-
-    /*if (scaffoldState.drawerState.isOpen) {
-        scope.launch {
-            scaffoldState.drawerState.close()
-            Log.i("Drawer", "drawer Close: ")
-        }
-    }*/
 
 }
