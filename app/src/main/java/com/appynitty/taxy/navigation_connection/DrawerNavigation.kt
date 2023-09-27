@@ -8,8 +8,6 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxHeight
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -24,8 +22,6 @@ import androidx.compose.material.Text
 import androidx.compose.material.primarySurface
 import androidx.compose.material.rememberDrawerState
 import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.ModalDrawerSheet
-import androidx.compose.material3.ModalNavigationDrawer
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
@@ -43,8 +39,6 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.appynitty.taxy.R
-import com.appynitty.taxy.screen.DashboardScreen
-import com.appynitty.taxy.screen.HomeScreen
 import com.appynitty.taxy.screen_connection.DrawerNavItem
 import com.appynitty.taxy.ui.theme.TaxyTheme
 import com.appynitty.taxy.ui.theme.colorPrimary
@@ -80,15 +74,22 @@ fun DrawerNavComplete(
         }
     }*/
 
-    LazyColumn(){
-        item {
-            DrawerNavHeader(navController)
-        }
-        item {
-            DrawerNavCenterView(navController)
-        }
-        item {
-            DrawerNavFooter(navController)
+
+    Box(
+        modifier = Modifier
+            .background(shape = RoundedCornerShape(20.dp), color = Color.Transparent),
+        contentAlignment = Alignment.Center
+    ) {
+        LazyColumn(){
+            item {
+                DrawerNavHeader(navController)
+            }
+            item {
+                DrawerNavCenterView(navController)
+            }
+            item {
+                DrawerNavFooter(navController)
+            }
         }
     }
 }
