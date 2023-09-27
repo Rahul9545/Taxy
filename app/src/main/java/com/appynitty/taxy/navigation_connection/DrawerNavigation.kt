@@ -8,11 +8,13 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.DrawerState
@@ -41,6 +43,8 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.appynitty.taxy.R
+import com.appynitty.taxy.screen.DashboardScreen
+import com.appynitty.taxy.screen.HomeScreen
 import com.appynitty.taxy.screen_connection.DrawerNavItem
 import com.appynitty.taxy.ui.theme.TaxyTheme
 import com.appynitty.taxy.ui.theme.colorPrimary
@@ -52,7 +56,7 @@ fun DrawerNavComplete(
     navController: NavHostController = rememberNavController(),
     drawerState: DrawerState = rememberDrawerState(initialValue = DrawerValue.Open)
 ){
-    ModalNavigationDrawer(
+    /*ModalNavigationDrawer(
         drawerContent = {
             ModalDrawerSheet {
                 Box(
@@ -61,7 +65,7 @@ fun DrawerNavComplete(
                         .background(Color.Green),
                     contentAlignment = Alignment.Center
                 ) {
-                    Text(text = "Drawer")
+
                 }
             }
         }
@@ -72,7 +76,19 @@ fun DrawerNavComplete(
                 .background(White),
             contentAlignment = Alignment.Center
         ) {
-            Text(text = "Content Page")
+            //DashboardScreen(navController)
+        }
+    }*/
+
+    LazyColumn(){
+        item {
+            DrawerNavHeader(navController)
+        }
+        item {
+            DrawerNavCenterView(navController)
+        }
+        item {
+            DrawerNavFooter(navController)
         }
     }
 }
@@ -82,7 +98,7 @@ fun DrawerNavHeader(navController: NavHostController){
     Box (
         modifier = Modifier
             .fillMaxWidth(1f)
-            .height(200.dp)
+            .height(180.dp)
             .background(/*colorPrimary*/
                 brush = Brush.horizontalGradient(
                     listOf(
@@ -149,6 +165,15 @@ fun DrawerNavCenterView(navController: NavHostController){
     val navBackStackEntry by navController.currentBackStackEntryAsState()
     val currentDestination = navBackStackEntry?.destination
 
+    Box (
+        modifier = Modifier
+            .fillMaxWidth()
+            .height(300.dp)
+            .background(color = White),
+        contentAlignment = Alignment.Center,
+    ) {
+
+    }
 
 }
 
