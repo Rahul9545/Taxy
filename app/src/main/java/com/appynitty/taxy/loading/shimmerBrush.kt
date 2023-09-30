@@ -38,23 +38,20 @@ fun shimmerBrush(showShimmer: Boolean = true,targetValue:Float = 1000f): Any {
             Color.LightGray.copy(alpha = 0.6f),
         )
 
-        val translation by rememberInfiniteTransition().animateValue(
-            initialValue = 60.dp,
-            targetValue = (-60).dp,
-            typeConverter = Dp.VectorConverter,
+        val transition = rememberInfiniteTransition()
+        val translateAnimation = transition.animateFloat(
+            initialValue = 1f,
+            targetValue = 1f,
             animationSpec = infiniteRepeatable(
-                animation = tween(90195, easing = LinearEasing),
+                animation = tween(800),
                 repeatMode = RepeatMode.Reverse
             ),
-            label = "Rahul"
+            label = "FloatAnimation"
         )
-        Image(
-            painterResource(id = R.drawable.ic_person_pin),
-            contentDescription = "",
-            modifier = Modifier
-                .fillMaxHeight()
-                .scale(3.8f)
-                .offset(x = translation, y = (-5).dp),
+        Brush.linearGradient(
+            colors = shimmerColors,
+            start = Offset.Zero,
+            end = Offset(x = translateAnimation.value, y = translateAnimation.value)
         )
 
     } else {
@@ -76,6 +73,7 @@ fun Modifier.shimmerBackground(shape: Shape = RectangleShape): Modifier = compos
             tween(durationMillis = 1500, easing = LinearOutSlowInEasing),
             RepeatMode.Restart
         ),
+        label = "FloatAnimation"
     )
     val shimmerColors = listOf(
         Color.LightGray.copy(alpha = 0.9f),
