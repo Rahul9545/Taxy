@@ -30,6 +30,8 @@ NavigationGraph(navClicked)
 
 # Drawer Navigation on dashboard screen
 
+*** issue 1: In Custom tool bar screen function on menu icon clicked then not open drawer screen
+
 
 
 
